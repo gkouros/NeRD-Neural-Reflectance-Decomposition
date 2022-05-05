@@ -1,0 +1,21 @@
+Universe = vanilla
+
+RequestCpus = 8
+Request_GPUs = 1
+RequestMemory = 8Gb
++RequestWalltime = 3600
+
+Requirements = (CUDACapability >= 3.5)&&(CUDAGlobalMemoryMb >= 8000.0)
+
+Initialdir = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor
+Executable = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor/run_nerf_job.sh
+Arguments = tesla $(Cluster)
+
+NiceUser = false
+
+Log    =  ../logs/tesla/exp.$(Cluster).log
+Output =  ../logs/tesla/exp.$(Cluster).out
+Error  =  ../logs/tesla/exp.$(Cluster).err
+
+Notification = Complete
+Queue 1

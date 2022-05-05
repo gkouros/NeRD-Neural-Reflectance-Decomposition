@@ -1,0 +1,19 @@
+Universe = vanilla
+
+RequestCpus = 2
+Request_GPUs = 1
+RequestMemory = 4Gb
++RequestWalltime = 14000
+
+Requirements = (CUDACapability >= 3.5)&&(CUDAGlobalMemoryMb >= 8000.0)&&(machine != "stadius-nc-5.esat.kuleuven.be")
+
+Initialdir = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor
+Executable = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor/run_nerf_job.sh
+Arguments = renault $(Cluster)
+
+Log    =  ../logs/renault/exp.$(Cluster).log
+Output =  ../logs/renault/exp.$(Cluster).out
+Error  =  ../logs/renault/exp.$(Cluster).err
+
+Notification = Complete
+Queue 1
