@@ -24,7 +24,6 @@ dependencies:
           - pytest
           - tqdm
           - flake8
-          - black
           - isort
           - ffmpeg-python
           - pylatex
