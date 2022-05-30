@@ -17,12 +17,12 @@ def _minify(basedir, factors=[], resolutions=[]):
     for r in factors:
         imgdir = os.path.join(basedir, "images_{}".format(r))
         maskdir = os.path.join(basedir, "masks_{}".format(r))
-        if not os.path.exists(imgdir) and not os.path.exists(maskdir):
+        if not os.path.exists(imgdir) or not os.path.exists(maskdir):
             needtoload = True
     for r in resolutions:
         imgdir = os.path.join(basedir, "images_{}x{}".format(r[1], r[0]))
         maskdir = os.path.join(basedir, "masks_{}x{}".format(r[1], r[0]))
-        if not os.path.exists(imgdir) and not os.path.exists(maskdir):
+        if not os.path.exists(imgdir) or not os.path.exists(maskdir):
             needtoload = True
     if not needtoload:
         return
@@ -64,8 +64,8 @@ def _minify(basedir, factors=[], resolutions=[]):
 
         print("Minifying", r, basedir)
 
-        os.makedirs(imgdir)
-        os.makedirs(maskdir)
+        os.makedirs(imgdir, exist_ok=True)
+        os.makedirs(maskdir, exist_ok=True)
         check_output("cp {}/* {}".format(imgdir_orig, imgdir), shell=True)
         check_output("cp {}/* {}".format(maskdir_orig, maskdir), shell=True)
 
