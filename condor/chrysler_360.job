@@ -1,17 +1,17 @@
 Universe = vanilla
 
 RequestCpus = 8
-Request_GPUs = 1
+Request_GPUs = 4
 RequestMemory = 8Gb
-+RequestWalltime = 172800
++RequestWalltime = 259000
 
-Requirements = (CUDACapability >= 3.5)&&(CUDAGlobalMemoryMb >= 8000.0)&&(machine != "andromeda.esat.kuleuven.be")&&(machine != "z8-demo.esat.kuleuven.be")&&(machine != "fig.esat.kuleuven.be")&&(machine != "grape.esat.kuleuven.be")&&(machine != "hawberry.esat.kuleuven.be")
+Requirements = (CUDACapability >= 3.5)&&(CUDAGlobalMemoryMb >= 8000.0)
 
 Initialdir = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor
 Executable = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor/run_nerf_job.sh
 Arguments = chrysler_360 $(Cluster)
 
-NiceUser = false
+NiceUser = true
 
 Log    =  ../logs/chrysler_360/exp.$(Cluster).log
 Output =  ../logs/chrysler_360/exp.$(Cluster).out
