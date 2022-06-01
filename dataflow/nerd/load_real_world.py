@@ -36,12 +36,12 @@ def _minify(basedir, factors=[], resolutions=[]):
     imgs = [
         f
         for f in imgs
-        if any([f.endswith(ex) for ex in ["JPG", "jpg", "png", "jpeg", "PNG"]])
+        if any([f.endswith(ex) for ex in ["JPG", "jpg", "JPEG", "png", "jpeg", "PNG"]])
     ]
     masks = [
         f
         for f in masks
-        if any([f.endswith(ex) for ex in ["JPG", "jpg", "png", "jpeg", "PNG"]])
+        if any([f.endswith(ex) for ex in ["JPG", "jpg", "JPEG", "png", "jpeg", "PNG"]])
     ]
     imgdir_orig = imgdir
     maskdir_orig = maskdir
@@ -110,7 +110,7 @@ def _load_data(basedir, factor=None, width=None, height=None, load_imgs=True):
     img0 = [
         os.path.join(basedir, "images", f)
         for f in sorted(os.listdir(os.path.join(basedir, "images")))
-        if f.endswith("JPG") or f.endswith("jpg") or f.endswith("png")
+        if f.endswith("JPG") or f.endswith("jpg") or f.endswith("png") or f.endswith("JPEG")
     ][0]
     sh = imageio.imread(img0).shape
 
@@ -149,12 +149,12 @@ def _load_data(basedir, factor=None, width=None, height=None, load_imgs=True):
     imgfiles = [
         os.path.join(imgdir, f)
         for f in sorted(os.listdir(imgdir))
-        if f.endswith("JPG") or f.endswith("jpg") or f.endswith("png")
+        if f.endswith("JPG") or f.endswith("jpg") or f.endswith("png") or f.endswith("JPEG")
     ]
     masksfiles = [
         os.path.join(maskdir, f)
         for f in sorted(os.listdir(maskdir))
-        if f.endswith("JPG") or f.endswith("jpg") or f.endswith("png")
+        if f.endswith("JPG") or f.endswith("jpg") or f.endswith("png") or f.endswith("JPEG")
     ]
     if poses.shape[-1] != len(imgfiles) and len(imgfiles) == len(masksfiles):
         print(
@@ -191,7 +191,7 @@ def handle_exif(basedir):
     files = [
         os.path.join(basedir, "images", f)
         for f in sorted(os.listdir(os.path.join(basedir, "images")))
-        if f.endswith("JPG") or f.endswith("jpg")
+        if f.endswith("JPG") or f.endswith("jpg") or f.endswith("JPEG")
     ]
 
     if len(files) == 0:
