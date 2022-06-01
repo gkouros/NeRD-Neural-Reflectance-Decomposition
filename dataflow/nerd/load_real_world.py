@@ -306,7 +306,15 @@ def spherify_poses(poses, bds):
     pt_mindist = min_line_dist(rays_o, rays_d)
 
     center = pt_mindist
-    up = (poses[:, :3, 3] - center).mean(0)
+    svd = np.linalg.svd((poses[:, :3, 3] - center).T)
+    eigvals = svd[1]
+    if max(eigvals[:2]) < 2 * eigvals[2]:
+        print('Up vector estimation using averaging of camera vectors')
+        up = (poses[:,:3,3] - center).mean(0)
+    else:
+        print('Up vector estimation using plane normal')
+        up = svd[0][:, -1]
+
 
     vec0 = normalize(up)
     vec1 = normalize(np.cross([0.1, 0.2, 0.3], vec0))
