@@ -1,8 +1,8 @@
 Universe = vanilla
 
 RequestCpus = 8
-Request_GPUs = 4
-RequestMemory = 8Gb
+Request_GPUs = 2
+RequestMemory = 50Gb
 +RequestWalltime = 259000
 
 Requirements = (CUDACapability >= 3.5)&&(CUDAGlobalMemoryMb >= 8000.0)
