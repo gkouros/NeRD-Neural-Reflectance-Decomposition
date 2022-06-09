@@ -8,7 +8,7 @@ RequestMemory = 50Gb
 Requirements = (CUDACapability >= 3.5)&&(CUDAGlobalMemoryMb >= 8000.0)
 
 Initialdir = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor
-Executable = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor/run_nerf_job.sh
+Executable = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor/run_nerd_real_world_job.sh
 Arguments = chrysler_360 $(Cluster)
 
 NiceUser = true

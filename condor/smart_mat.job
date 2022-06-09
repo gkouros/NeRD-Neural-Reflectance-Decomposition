@@ -8,14 +8,14 @@ RequestMemory = 50Gb
 Requirements = (CUDACapability >= 3.5)&&(CUDAGlobalMemoryMb >= 8000.0)&&(machine == "bandai.esat.kuleuven.be")&&(machine != "vladimir.esat.kuleuven.be")
 
 Initialdir = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor
-Executable = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor/run_nerd_real_world_job.sh
-Arguments = tesla $(Cluster)
+Executable = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor/run_nerd_blender_job.sh
+Arguments = smart_mat $(Cluster)
 
 NiceUser = true
 
-Log    =  ../logs/tesla/exp.$(Cluster).log
-Output =  ../logs/tesla/exp.$(Cluster).out
-Error  =  ../logs/tesla/exp.$(Cluster).err
+Log    =  ../logs/smart_mat/exp.$(Cluster).log
+Output =  ../logs/smart_mat/exp.$(Cluster).out
+Error  =  ../logs/smart_mat/exp.$(Cluster).err
 
 Notification = Complete
 Queue 1
