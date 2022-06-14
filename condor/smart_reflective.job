@@ -9,13 +9,13 @@ Requirements = (CUDACapability >= 3.5)&&(CUDAGlobalMemoryMb >= 8000.0)&&(machine
 
 Initialdir = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor
 Executable = /users/visics/gkouros/projects/nerf-repos/NeRD-Neural-Reflectance-Decomposition/condor/run_nerd_blender_job.sh
-Arguments = smart_specular $(Cluster)
+Arguments = smart_reflective $(Cluster)
 
 NiceUser = true
 
-Log    =  ../logs/smart_specular/exp.$(Cluster).log
-Output =  ../logs/smart_specular/exp.$(Cluster).out
-Error  =  ../logs/smart_specular/exp.$(Cluster).err
+Log    =  ../logs/smart_reflective/exp.$(Cluster).log
+Output =  ../logs/smart_reflective/exp.$(Cluster).out
+Error  =  ../logs/smart_reflective/exp.$(Cluster).err
 
 Notification = Complete
 Queue 1
